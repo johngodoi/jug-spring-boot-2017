@@ -17,6 +17,14 @@ angular.module('demo', [])
                 $scope.greeting = response.data;
                 $scope.listing();
             });
-        }
+        };
+        $scope.updateGreeting=function (id,name) {
+            var url = "/greeting?id="+id+"&name="+name;
+            $http.put(url).
+            then(function(response) {
+                $scope.greeting = response.data;
+                $scope.listing();
+            });
+        };
         $scope.listing();
     });

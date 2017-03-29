@@ -15,6 +15,7 @@
     </form>
 </fieldset>
 <fieldset ng-controller="HelloListing">
+    <label>Search<input ng-model="searchText"></label>
     <table>
         <thead>
             <tr>
@@ -23,10 +24,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="greeting in greetings">
+            <tr ng-repeat="greeting in greetings | filter:searchText">
                 <th>{{greeting.id}}</th>
-                <th>{{greeting.content}}</th>
+                <th><a href="/greeting?id={{greeting.id}}"> {{greeting.content}}</a></th>
                 <th><input type="button" ng-click=deleteGreeting(greeting.id)></th>
+                <th><input type="button" ng-click=updateGreeting(greeting.id)></th>
             </tr>
         </tbody>
     </table>
