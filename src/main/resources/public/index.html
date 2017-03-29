@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="demo">
+<head>
+    <title>Hello AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="hello.js"></script>
+</head>
+
+<body>
+<fieldset>
+    <form action="/greeting" method="post">
+        <label for="name"></label>
+        <input id="name" name="name" type="text" placeholder="Insert name here">
+        <input type="submit">
+    </form>
+</fieldset>
+<fieldset ng-controller="HelloListing">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="greeting in greetings">
+                <th>{{greeting.id}}</th>
+                <th>{{greeting.content}}</th>
+                <th><input type="button" ng-click=deleteGreeting(greeting.id)></th>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
+
+</body>
+</html>

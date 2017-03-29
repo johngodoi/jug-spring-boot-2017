@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Transactional
 @Repository
-public class GreetingDAO {
+public class GreetingDAO  {
     @PersistenceContext
     private EntityManager entityManager;
     public Greeting save(Greeting greeting){
